@@ -47,6 +47,18 @@ class Sensei < Formula
     environment_variables HOME: ENV["HOME"], PATH: "#{HOMEBREW_PREFIX}/bin:/usr/local/bin:/usr/bin:/bin"
   end
 
+  def caveats
+    <<~EOS
+      Before uninstalling sensei, remove MCP entries, hooks, and skills it installed:
+
+        brew services stop sensei
+        sensei remove        # global: all ACP configs, hooks, skill files
+        sensei remove --all  # also wipes ~/.sensei/ data directory
+
+      Note: Homebrew formulas have no uninstall hook, so this step is manual.
+    EOS
+  end
+
   test do
     system "#{bin}/sensei", "--version"
   end
