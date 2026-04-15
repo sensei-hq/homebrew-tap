@@ -1,26 +1,29 @@
 # Homebrew formula for the Sensei CLI.
-# Hosted at: https://github.com/mizukisu/homebrew-tap
 # Usage:
 #   brew tap mizukisu/tap
 #   brew install mizukisu/tap/sensei
 
 class Sensei < Formula
+  GITHUB_ORG = "mizukisu".freeze
+  REPO_NAME = "sensei".freeze
+  REPO_URL = "https://github.com/#{GITHUB_ORG}/#{REPO_NAME}".freeze
+
   desc "AI development intelligence — CLI for indexing, MCP server, and telemetry"
-  homepage "https://github.com/mizukisu/sensei"
+  homepage REPO_URL
   version "0.1.0"
 
   # Release archives (produced by `bun run build` + packaging)
   if OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/mizukisu/sensei/releases/download/v#{version}/sensei-cli-macos-arm64.tar.gz"
+    url "#{REPO_URL}/releases/download/v#{version}/sensei-cli-macos-arm64.tar.gz"
     sha256 "REPLACE_WITH_ARM64_SHA256"
   elsif OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/mizukisu/sensei/releases/download/v#{version}/sensei-cli-macos-x86_64.tar.gz"
+    url "#{REPO_URL}/releases/download/v#{version}/sensei-cli-macos-x86_64.tar.gz"
     sha256 "REPLACE_WITH_X86_64_SHA256"
   elsif OS.linux? && Hardware::CPU.arm?
-    url "https://github.com/mizukisu/sensei/releases/download/v#{version}/sensei-cli-linux-arm64.tar.gz"
+    url "#{REPO_URL}/releases/download/v#{version}/sensei-cli-linux-arm64.tar.gz"
     sha256 "REPLACE_WITH_LINUX_ARM64_SHA256"
   else
-    url "https://github.com/mizukisu/sensei/releases/download/v#{version}/sensei-cli-linux-x86_64.tar.gz"
+    url "#{REPO_URL}/releases/download/v#{version}/sensei-cli-linux-x86_64.tar.gz"
     sha256 "REPLACE_WITH_LINUX_X86_64_SHA256"
   end
 
@@ -33,12 +36,9 @@ class Sensei < Formula
   end
 
   def post_install
-    # Create ~/.sensei directory for project data
     (Pathname.new(ENV["HOME"]) / ".sensei").mkpath
   end
 
-  # `brew services start sensei` runs the server + graph indexer as a background
-  # daemon that starts automatically on login.
   service do
     run [opt_bin/"senseid"]
     keep_alive true
