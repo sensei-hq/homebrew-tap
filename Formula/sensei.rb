@@ -29,6 +29,7 @@ class Sensei < Formula
   def install
     bin.install "sensei"
     bin.install "senseid"
+    bin.install "sensei-mcp"
   end
 
   def post_install
@@ -49,11 +50,16 @@ class Sensei < Formula
 
   def caveats
     <<~EOS
-      Before uninstalling sensei, remove MCP entries, hooks, and skills it installed:
+      After installing, configure sensei for your AI coding platform:
 
-        brew services stop sensei
-        sensei remove        # global: all ACP configs, hooks, skill files
-        sensei remove --all  # also wipes ~/.sensei/ data directory
+        sensei install --acp claude-code   # or cursor, windsurf
+        sensei start                       # start the daemon
+        sensei scan ~/Developer            # scan and index your repos
+
+      Before uninstalling:
+
+        sensei stop
+        sensei uninstall
 
       Note: Homebrew formulas have no uninstall hook, so this step is manual.
     EOS
