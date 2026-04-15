@@ -1,23 +1,25 @@
 # Homebrew cask for the Sensei desktop app (.app bundle).
-# Hosted at: https://github.com/sensei-dev/homebrew-tap
 # Usage:
-#   brew tap sensei-dev/tap
-#   brew install --cask sensei-dev/tap/sensei-app
+#   brew tap mizukisu/tap
+#   brew install --cask mizukisu/tap/sensei-app
 
 cask "sensei-app" do
+  GITHUB_ORG = "mizukisu".freeze
+  REPO_URL = "https://github.com/#{GITHUB_ORG}/sensei".freeze
+
   version "0.1.0"
 
   if Hardware::CPU.arm?
-    url "https://github.com/sensei-dev/sensei/releases/download/v#{version}/Sensei_aarch64.dmg"
+    url "#{REPO_URL}/releases/download/v#{version}/Sensei_aarch64.dmg"
     sha256 "REPLACE_WITH_ARM64_DMG_SHA256"
   else
-    url "https://github.com/sensei-dev/sensei/releases/download/v#{version}/Sensei_x86_64.dmg"
+    url "#{REPO_URL}/releases/download/v#{version}/Sensei_x86_64.dmg"
     sha256 "REPLACE_WITH_X86_64_DMG_SHA256"
   end
 
   name "Sensei"
   desc "AI development intelligence desktop app"
-  homepage "https://github.com/sensei-dev/sensei"
+  homepage REPO_URL
 
   app "Sensei.app"
 
