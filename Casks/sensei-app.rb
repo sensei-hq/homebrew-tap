@@ -1,10 +1,10 @@
 # Homebrew cask for the Sensei desktop app (.app bundle).
 # Usage:
-#   brew tap mizukisu/tap
-#   brew install --cask mizukisu/tap/sensei-app
+#   brew tap sensei-hq/tap
+#   brew install --cask sensei-hq/tap/sensei-app
 
 cask "sensei-app" do
-  GITHUB_ORG = "mizukisu".freeze
+  GITHUB_ORG = "sensei-hq".freeze
   REPO_URL = "https://github.com/#{GITHUB_ORG}/sensei".freeze
 
   version "0.1.0"
