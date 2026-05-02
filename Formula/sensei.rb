@@ -1,10 +1,10 @@
 # Homebrew formula for the Sensei CLI.
 # Usage:
-#   brew tap mizukisu/tap
-#   brew install mizukisu/tap/sensei
+#   brew tap sensei-hq/tap
+#   brew install sensei-hq/tap/sensei
 
 class Sensei < Formula
-  GITHUB_ORG = "mizukisu".freeze
+  GITHUB_ORG = "sensei-hq".freeze
   REPO_NAME = "sensei".freeze
   REPO_URL = "https://github.com/#{GITHUB_ORG}/#{REPO_NAME}".freeze
 

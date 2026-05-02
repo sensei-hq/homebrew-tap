@@ -1,12 +1,12 @@
 # homebrew-tap
 
-Homebrew tap for [sensei](https://github.com/sensei-dev/sensei) — AI development intelligence for coding agents.
+Homebrew tap for [sensei](https://github.com/sensei-hq/sensei) — AI development intelligence for coding agents.
 
 ## Install
 
 ```sh
-brew tap sensei-dev/tap
-brew install sensei-dev/tap/sensei
+brew tap sensei-hq/tap
+brew install sensei-hq/tap/sensei
 ```
 
 This installs two binaries:
@@ -19,7 +19,7 @@ This installs two binaries:
 ## Run as a background service
 
 ```sh
-brew services start sensei-dev/tap/sensei
+brew services start sensei-hq/tap/sensei
 ```
 
 `senseid` starts automatically on login, runs the MCP server on `localhost:7320`, and indexes your repos in the background (up to 4 parallel workers).
@@ -27,21 +27,18 @@ brew services start sensei-dev/tap/sensei
 ## Install the desktop app
 
 ```sh
-brew install --cask sensei-dev/tap/sensei-app
+brew install --cask sensei-hq/tap/sensei-app
 ```
 
-## Install everything (CLI + app + Ollama)
+## Install everything (CLI + app + prerequisites)
 
-Save this as a `Brewfile` and run `brew bundle`:
+Install from the Brewfile hosted on GitHub — already-installed items are skipped:
 
 ```sh
-tap "sensei-dev/tap"
-brew "sensei-dev/tap/sensei"
-cask "sensei-dev/tap/sensei-app"
-brew "ollama"
+curl -fsSL https://raw.githubusercontent.com/sensei-hq/homebrew-tap/main/Brewfile | brew bundle --file=-
 ```
 
-Or use the included Brewfile in this repo:
+Or clone the repo and run locally:
 
 ```sh
 brew bundle --file=Brewfile
@@ -65,7 +62,7 @@ brew upgrade sensei
 
 ```sh
 brew uninstall sensei
-brew untap sensei-dev/tap
+brew untap sensei-hq/tap
 ```
 
 To also remove all app data:

@@ -1,8 +1,10 @@
-# Install Sensei CLI + desktop app via Homebrew.
-# Usage: brew bundle
+# Install Sensei and its prerequisites via Homebrew.
+# Usage: brew bundle --file=Brewfile
+# Safe to re-run — already-installed items are skipped.
 
-tap "sensei-dev/tap", "https://github.com/sensei-dev/homebrew-tap"
+tap "sensei-hq/tap", "https://github.com/sensei-hq/homebrew-tap"
 
-brew "sensei-dev/tap/sensei"        # CLI + background server daemon
-cask "sensei-dev/tap/sensei-app"    # Desktop app (optional)
-cask "ollama"                       # Local AI inference (optional, used by indexer)
+brew "postgresql@17"                # Storage engine
+brew "ollama"                       # Local AI inference (embeddings, summarisation)
+brew "sensei-hq/tap/sensei"        # CLI + MCP bridge + background daemon
+cask "sensei-hq/tap/sensei-app"    # Desktop app (optional)
