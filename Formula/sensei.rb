@@ -32,7 +32,7 @@ class Sensei < Formula
   end
 
   def post_install
-    (Pathname.new(ENV["HOME"]) / ".sensei").mkpath
+    (Pathname.new(Dir.home) / ".sensei").mkpath
   end
 
   service do
@@ -40,8 +40,8 @@ class Sensei < Formula
     keep_alive true
     log_path var/"log/sensei.log"
     error_log_path var/"log/sensei.error.log"
-    working_dir ENV["HOME"]
-    environment_variables HOME: ENV["HOME"], PATH: "#{HOMEBREW_PREFIX}/bin:/usr/local/bin:/usr/bin:/bin"
+    working_dir Dir.home
+    environment_variables HOME: Dir.home, PATH: "#{HOMEBREW_PREFIX}/bin:/usr/local/bin:/usr/bin:/bin"
   end
 
   def caveats
