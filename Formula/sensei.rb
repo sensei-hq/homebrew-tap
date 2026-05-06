@@ -1,33 +1,29 @@
-# Homebrew formula for the Sensei CLI.
+# Homebrew formula for the Sensei CLI tools.
+# Installs: senseid (daemon), sensei (CLI), sensei-mcp (MCP server)
+#
 # Usage:
 #   brew tap sensei-hq/tap
 #   brew install sensei-hq/tap/sensei
 
 class Sensei < Formula
-  GITHUB_ORG = "sensei-hq".freeze
-  REPO_NAME = "sensei".freeze
-  REPO_URL = "https://github.com/#{GITHUB_ORG}/#{REPO_NAME}".freeze
-
-  desc "AI development intelligence — CLI for indexing, MCP server, and telemetry"
-  homepage REPO_URL
+  desc "AI development intelligence — CLI, daemon, and MCP server"
+  homepage "https://github.com/sensei-hq/sensei"
   version "0.1.0"
 
-  # Release archives (produced by `bun run build` + packaging)
+  # Release archives (produced by `make release` + packaging)
   if OS.mac? && Hardware::CPU.arm?
-    url "#{REPO_URL}/releases/download/v#{version}/sensei-cli-macos-arm64.tar.gz"
+    url "https://github.com/sensei-hq/sensei/releases/download/v#{version}/sensei-cli-macos-arm64.tar.gz"
     sha256 "REPLACE_WITH_ARM64_SHA256"
   elsif OS.mac? && Hardware::CPU.intel?
-    url "#{REPO_URL}/releases/download/v#{version}/sensei-cli-macos-x86_64.tar.gz"
+    url "https://github.com/sensei-hq/sensei/releases/download/v#{version}/sensei-cli-macos-x86_64.tar.gz"
     sha256 "REPLACE_WITH_X86_64_SHA256"
   elsif OS.linux? && Hardware::CPU.arm?
-    url "#{REPO_URL}/releases/download/v#{version}/sensei-cli-linux-arm64.tar.gz"
+    url "https://github.com/sensei-hq/sensei/releases/download/v#{version}/sensei-cli-linux-arm64.tar.gz"
     sha256 "REPLACE_WITH_LINUX_ARM64_SHA256"
   else
-    url "#{REPO_URL}/releases/download/v#{version}/sensei-cli-linux-x86_64.tar.gz"
+    url "https://github.com/sensei-hq/sensei/releases/download/v#{version}/sensei-cli-linux-x86_64.tar.gz"
     sha256 "REPLACE_WITH_LINUX_X86_64_SHA256"
   end
-
-  bottle :unneeded
 
   def install
     bin.install "sensei"

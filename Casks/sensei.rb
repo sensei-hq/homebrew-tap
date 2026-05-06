@@ -1,25 +1,26 @@
 # Homebrew cask for the Sensei desktop app (.app bundle).
+# Depends on the sensei formula for CLI tools (senseid, sensei-mcp).
+#
 # Usage:
 #   brew tap sensei-hq/tap
-#   brew install --cask sensei-hq/tap/sensei-app
+#   brew install --cask sensei-hq/tap/sensei
 
-cask "sensei-app" do
-  GITHUB_ORG = "sensei-hq".freeze
-  REPO_URL = "https://github.com/#{GITHUB_ORG}/sensei".freeze
-
+cask "sensei" do
   version "0.1.0"
 
   if Hardware::CPU.arm?
-    url "#{REPO_URL}/releases/download/v#{version}/Sensei_aarch64.dmg"
+    url "https://github.com/sensei-hq/sensei/releases/download/v#{version}/Sensei_aarch64.dmg"
     sha256 "REPLACE_WITH_ARM64_DMG_SHA256"
   else
-    url "#{REPO_URL}/releases/download/v#{version}/Sensei_x86_64.dmg"
+    url "https://github.com/sensei-hq/sensei/releases/download/v#{version}/Sensei_x86_64.dmg"
     sha256 "REPLACE_WITH_X86_64_DMG_SHA256"
   end
 
   name "Sensei"
   desc "AI development intelligence desktop app"
-  homepage REPO_URL
+  homepage "https://github.com/sensei-hq/sensei"
+
+  depends_on formula: "sensei"
 
   app "Sensei.app"
 
