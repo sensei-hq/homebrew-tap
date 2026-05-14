@@ -30,19 +30,21 @@ brew services start sensei-hq/tap/sensei
 brew install --cask sensei-hq/tap/sensei-app
 ```
 
-## Install everything (CLI + app + prerequisites)
+## Build flavors
 
-Install from the Brewfile hosted on GitHub — already-installed items are skipped:
-
-```sh
-curl -fsSL https://raw.githubusercontent.com/sensei-hq/homebrew-tap/main/Brewfile | brew bundle --file=-
-```
-
-Or clone the repo and run locally:
+Single command per build flavor — no Brewfile to fetch.
 
 ```sh
-brew bundle --file=Brewfile
+# Stable / production
+brew install sensei-hq/tap/sensei
+
+# Dev / contributor (built from develop branch HEAD)
+brew install --HEAD sensei-hq/tap/sensei-dev
 ```
+
+The first run of the daemon installs missing prerequisites (`postgresql@17`,
+`ollama`) automatically via per-component install resolvers — no separate
+`brew bundle` step needed.
 
 ## Formulas
 
