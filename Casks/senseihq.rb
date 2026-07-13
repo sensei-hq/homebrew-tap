@@ -6,11 +6,11 @@
 #   brew install --cask sensei-hq/tap/senseihq
 
 cask "senseihq" do
-  version "0.2.45"
+  version "0.3.0"
 
   # Universal binary — runs natively on both Apple Silicon and Intel
   url "https://github.com/sensei-hq/sensei/releases/download/v#{version}/Sensei_#{version}_universal.dmg"
-  sha256 "7fa2373947ea21022bb6205b59f642fe181cafcb4b8de318b9c287d446ed21a2"
+  sha256 "REPLACE_WITH_DMG_SHA256"
 
   name "Sensei"
   desc "AI development intelligence desktop app"
