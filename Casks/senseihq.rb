@@ -10,7 +10,7 @@ cask "senseihq" do
 
   # Universal binary — runs natively on both Apple Silicon and Intel
   url "https://github.com/sensei-hq/sensei/releases/download/v#{version}/Sensei_#{version}_universal.dmg"
-  sha256 "REPLACE_WITH_DMG_SHA256"
+  sha256 "2f4dd97f411928e821136dfc61a2f355f6058561178abda4ab293b8682bf1e4c"
 
   name "Sensei"
   desc "AI development intelligence desktop app"
