@@ -19,16 +19,16 @@ class Sensei < Formula
   # (e.g. sensei-macos-arm64/) holding senseid, sensei, and sensei-mcp.
   if OS.mac? && Hardware::CPU.arm?
     url "https://github.com/sensei-hq/sensei/releases/download/v#{version}/sensei-macos-arm64.tar.gz"
-    sha256 "REPLACE_WITH_ARM64_SHA256"
+    sha256 "df37ecbfcf5b8f41b1ce100fb6f744a7fb688d988fcdbe57c4f1554b8d1cc827"
   elsif OS.mac? && Hardware::CPU.intel?
     url "https://github.com/sensei-hq/sensei/releases/download/v#{version}/sensei-macos-x86_64.tar.gz"
-    sha256 "REPLACE_WITH_X86_64_SHA256"
+    sha256 "2575f8dbd7856de26329ac3fc979c3eeb0328e390a39b103ced2af4d4724b51c"
   elsif OS.linux? && Hardware::CPU.arm?
     url "https://github.com/sensei-hq/sensei/releases/download/v#{version}/sensei-linux-arm64.tar.gz"
-    sha256 "REPLACE_WITH_LINUX_ARM64_SHA256"
+    sha256 "657773b49c872bb674285c60d8e6f917275ce1185da10e194d9c13f82b575054"
   else
     url "https://github.com/sensei-hq/sensei/releases/download/v#{version}/sensei-linux-x86_64.tar.gz"
-    sha256 "REPLACE_WITH_LINUX_X86_64_SHA256"
+    sha256 "1ddb4755f1698e4e7bf3fa35ccd95307c18d59001e5c0f5a60ee4086f9f55bbf"
   end
 
   # HEAD path: build from source on `main`.
