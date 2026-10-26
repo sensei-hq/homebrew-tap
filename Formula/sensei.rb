@@ -12,23 +12,23 @@
 class Sensei < Formula
   desc "AI development intelligence — CLI, daemon, and MCP server"
   homepage "https://github.com/sensei-hq/sensei"
-  version "0.20.1"
+  version "0.20.2"
 
   # Release archives built by GitHub Actions (release-daemon.yml).
   # Each tarball contains a single directory named after the artifact
   # (e.g. sensei-macos-arm64/) holding senseid, sensei, and sensei-mcp.
   if OS.mac? && Hardware::CPU.arm?
     url "https://github.com/sensei-hq/sensei/releases/download/v#{version}/sensei-macos-arm64.tar.gz"
-    sha256 "7ef67122d19eb6326fc543bace6d9a6be5a00b766bab0a070fcd8b29cbdd987a"
+    sha256 "a7734792e06256ab11e8efbd55eba0bc663a8afd89d3985d13834c80d5ba31e6"
   elsif OS.mac? && Hardware::CPU.intel?
     url "https://github.com/sensei-hq/sensei/releases/download/v#{version}/sensei-macos-x86_64.tar.gz"
-    sha256 "e5e66bcd39b61a7ad0f785867bcc1a214311b14ce85ed29029cd1c167467a976"
+    sha256 "19c7b2f6fd233bd54369a3f494c883afa22786ffcf96944b0a62689ee2385508"
   elsif OS.linux? && Hardware::CPU.arm?
     url "https://github.com/sensei-hq/sensei/releases/download/v#{version}/sensei-linux-arm64.tar.gz"
-    sha256 "e63c1bfec5267e8087b3243f3dac1d4311dd0398d7a277ea71a6712a40ab1b22"
+    sha256 "5b5dd140138aae0ca6c08707d627ae3fb6630d2af0d77c2fe14ece5ccaf076a0"
   else
     url "https://github.com/sensei-hq/sensei/releases/download/v#{version}/sensei-linux-x86_64.tar.gz"
-    sha256 "162b23223590d42e44c111f00f22ee42f8047b8964b1d9e886bcb30265f91515"
+    sha256 "ceaed1b4394e818dbad46fdacdd8b2549bcaf082600ad8c5d8c47dcd70a86825"
   end
 
   # HEAD path: build from source on `main`.
